@@ -1,28 +1,31 @@
-//webix.ready(function(){
+webix.ready(function(){
 
-webix.ui({
+table4D = webix.ui({
 				container:"table4DB",
 				view:"datatable",
-
-				columns:[
-					{ id:"npp",	    header:"", width:100 },
-					{ id:"context", header:"", width:200 },
-					{ id:"value",	header:"", width:200 }
-				],
+                id:"table4D",
+                autoConfig:true,
+                autoheight:true,
+                autowidth:true,
+                resizeColumn:true,
+                resizeRow:true,
+                adjust:true,
                 spans:true,
-                select:"cell",
-				autoheight:true,
-				autowidth:true,
-                header:false,
                 select:"row",
-				data:{
+				header:false,
+                columns:[
+					{ id:"npp",	    header:"" , width:50, fillspace:true},
+					{ id:"context", header:"" , width:300, fillspace:true},
+					{ id:"value",	header:"" , width:610, fillspace:true}
+				],
+                data:{
                     data:[
-                        { id:"header_a", npp:"Форма 4-ДБ" },
+                        { id:"header_a", npp:"Форма 4-ДБ", $css:{"text-align":"right"}},
                         { id:"header_b", npp:"Сведения об основных событиях, характеризующих состояние безопасности за прошедшую неделю с ... по ... 2015 г."},
                         { id:"header_c", npp:"Основные показатели" },
                         { id:"header_1", npp:"1.", context:"Наиболее значимая информация об обстановке в зоне ответственности ДЗ и вокруг его объектов (информация, необходимая для доклада исполнительному вице-президенту-руководителю Департамента по безопасности и ИТ ОАО АФК \"Система\" в соответсвии с п.1.13. формы 1-ДБ):" },
                         
-                        { id:"1_1", npp:"1.1", context:"" }, 
+                        { id:"1_1", npp:"1.1", context:""}, 
                         { id:"1_2", npp:"1.2", context:"" }, 
                         { id:"header_2", npp:"2", context:"Информация о событиях по форме 1-ДБ, которая была направлена в Департамент по безопасности и ИТ за отчетный период (неделю), с обязательым уточнением информации и развитием событий:" },
                         { id:"header_2_1", npp:"2.1", context:"В области обеспечения антитеррористической защищеншности персонала и объектов:" },
@@ -63,6 +66,7 @@ webix.ui({
                             ["header_b", "npp", 3, 1, null],
                             ["header_c", "npp", 3, 1, null],
                             ["header_1", "context", 2, 1, null],
+                           // ["header_1", "npp", 1, 2, null],
                             ["1_1", "context", 2, 1, null],
                             ["1_2", "context", 2, 1, null],
                             ["header_2", "context", 2, 1, null],
@@ -85,189 +89,21 @@ webix.ui({
                             
                     ]
                 }
-			});				
-	
-
-
-
-   /*       webix.ui({
-         container:"table4DB",
-         //------------------------------------ Шапка  таблицы --------------------------
-      rows:[
-            { view:"template",
-                type:"header",
-                css: "_my_head1",
-                template:"Форма 4-ДБ" },
-            { view:"template",
-                type:"header",
-                css: "_my_head2",
-                template:"Сведения об основных событиях, характеризующие " +
-                    "состояние безопасности, за<br> прошедшую неделю  с _____ по ____ 2015 г."},
-            { view:"template",
-                type:"header",
-                css: "_my_head3",
-                template:"Название ПБ" },
-             { view:"template",
-                type:"header",
-                css: "_my_head3",
-                template:"Основные показатели" },
-            {
-
-                view:"datatable",
-                autoConfig:true,
-                select:"row",
-                resizeRow:true,
-                resizeColumn:true,
-                editable:true,
-                autoheight:true,
-                autowidth:true,
-                columns:[
-                    { id:"Nn1",      header: {text: "1.", rowspan: 2}},
-                    { id:"Context1", header: {
-                        text:"Наиболее значимая информация об обстановке в зоне ответственности ДЗО  и вокруг его объектов (информация, необходимая для доклада исполнительному вице-президенту-руководителю Департамента по безопасности и ИТ  ОАО АФК «Система» в соответствии с п.1.13. формы 1-ДБ):",
-                        css:"multiline"
-
-                    },
-                        editor:"text",
-                        width:1000,
-                        fillspace:true}
-                ],
-                //------------------------------------ Строки для заполнения разела 1. таблицы  --------------------------
-                data:[
-                    { id:1, Nn1:"1.1", Context1:"", css:"multiline"},
-                    { id:2, Nn1:"1.2", Context1:"", css:"multiline"}
-                ]
-            }, //here you place any component you like
-            {view:"resizer"},
-           
-            {
-                view:"datatable",
-                scrollX:false,
-                scrollY:false,
-                autoheight:true,
-                columns:[
-                    { id:"Nn2",      header: {text: "2", rowspan: 2}},
-                    { id:"Context2", header: {
-                        text:"Информация о событиях по форме 1-ДБ, которая была направлена в Департамент по безопасности и ИТ за отчетный период (неделю), с обязательным уточнением информации и развитием событий:",
-                        css:"multiline"
-                    },
-                        width:1000,
-                        fillspace:true
-                    }
-                ]
-            },
-// ------- п. 2.1 --------------------------            
-             {
-                view:"datatable",
-                scrollX:false,
-                autoConfig:true,
-                select:"row",
-                resizeRow:true,
-                resizeColumn:true,
-                editable:true,
-                autoheight:true,
-                autowidth:true,
-                columns:[
-                    { id:"Nn2",      header: {text: "2.1"}},
-                    { id:"Context2", header: {
-                        text:"В области обеспечения антитеррористической озащищенности персонала объектов:"
-                    },
-
-                        editor:"text",
-                        width:1000,
-                        fillspace:true}
-                ], 
-                  //------------------------------------ Строки для заполнения разела 2.1. таблицы  --------------------------
-                data:[
-                    { id:211, Nn2:"2.1.1", Context1:"", css:"multiline"},
-                    { id:212, Nn2:"2.1.2.", Context1:"", css:"multiline"}
-                ]
-            },
-            {view:"resizer"},
- // ------- п. 2.2 --------------------------            
-             {
-                view:"datatable",
-                scrollX:false,
-                autoConfig:true,
-                select:"row",
-                resizeRow:true,
-                resizeColumn:true,
-                editable:true,
-                autoheight:true,
-                autowidth:true,
-                columns:[
-                    { id:"Nn22",      header: {text: "2.1"}},
-                    { id:"Context2", header: {
-                        text:"В области экономической безопасности:"
-                    },
-
-                        editor:"text",
-                        width:1000,
-                        fillspace:true}
-                ], 
-                  //------------------------------------ Строки для заполнения разела 2.2. таблицы  --------------------------
-                data:[
-                    { id:221, Nn22:"2.2.1", Context1:"", css:"multiline"},
-                    { id:222, Nn22:"2.2.2.", Context1:"", css:"multiline"}
-                ]
-            },
-            {view:"resizer"},  
-            // ------- п. 2.3 заголовок --------------------------            
-             {
-                view:"datatable",
-                scrollX:false,
-                autoConfig:true,
-                select:"row",
-                resizeRow:true,
-                resizeColumn:true,
-                editable:true,
-                autoheight:true,
-                autowidth:true,
-                columns:[
-                    { id:"Nn23",      header: {text: "2.3"}},
-                    { id:"Context2", header: {
-                        text:"В области информационной безопасности:"
-                    },
-
-                        width:1000,
-                        fillspace:true}
-                ]
-                 
-            },
-            // ------- п. 2.2 --------------------------            
-             {
-                view:"datatable",
-                scrollX:false,
-                autoConfig:true,
-                select:"row",
-                resizeRow:true,
-                resizeColumn:true,
-                editable:true,
-                autoheight:true,
-                autowidth:true,
-                 adjust:true,
-                header:false,
-                columns:[
-                    { id:"Nn231", rowspan: 3, css:"multiline"},
-                    { id:"Text", rowspan: 3, width: 200, css:"multiline"},
-                    { id:"Context23",rowspan: 3,  width: 800, css:"multiline",  editable:true,  editor:"text"},
-
-                        
-                ], 
-                  //------------------------------------ Строки для заполнения разела 2.2. таблицы  --------------------------
-                data:[
-                    { id:221, Nn231:"2.3.1", Text: "Сведения об инцидентах информационной ",  Context23: ""},
-                    { id:222, Nn231:"2.3.2.", Text: "Сведения о ключевых событиях", Context23:""}
-                ]
-            },
-            
-            
-            
-//---------------------------------------            
-        ]
-    });    //.ui 
-//});
-	
+			});	// ---- webix.ui
     
-    */
+    
+   // table4D.adjust();
+    var TableWidth = $$("table4D").$width;
+    console.log("TableWidth = " + TableWidth);
+    table4D.setRowHeight("header_1", 100);
+    table4D.setRowHeight("header_2", 100);
+    table4D.setRowHeight("2_3_1", 200);
+    table4D.setRowHeight("2_3_2", 200);
+     
+    
+    });	// ---- webix.ready
+	
+
+
+
 

@@ -8,30 +8,4 @@ body {
 .multiline {
     line-height: 30px !important;
 }
-.webix_ss_header .webix_first{
-    text-align: center;
-}
-.webix_ss_header .webix_last {
-    text-align: justify;
-    }
-._my_head1 {
-
-    text-align: right;
-    font-size: small;
-}
-
-._my_head2 {
-
-    text-align: center;
-    font-weight: bold;
-}
-
-._my_head3 {
-
-    text-align: center;
-    font-style: italic;
-}
-.multiline {
-    line-height: 30px !important;
-}
 
