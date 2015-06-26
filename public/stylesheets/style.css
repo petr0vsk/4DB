@@ -9,3 +9,6 @@ body {
     line-height: 30px !important;
 }
 
+.editable {
+    background-color: greenyellow;
+}
