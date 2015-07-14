@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var forma4DB = require('./routes/forma4DB');
 var forma2DB5DB = require('./routes/forma2DB5DB');
+var forma4DBv2 = require('./routes/forma4DBv2');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/forma4DB', forma4DB);
 app.use('/forma2DB5DB', forma2DB5DB);
+app.use('/forma4DBv2', forma4DBv2);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

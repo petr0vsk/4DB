@@ -6,9 +6,20 @@ body {
     font-family: "Times New Roman", Times, serif;
 }
 .multiline {
-    line-height: 30px !important;
+    color:Gray;
+    white-space:normal;
+    font-size:14px;
+    white-space: pre-wrap;      /* CSS3 */
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -pre-wrap;     /* Opera <7 */
+    white-space: -o-pre-wrap;   /* Opera 7 */
+    word-wrap: break-word;      /* IE */
 }
 
 .editable {
-    background-color: greenyellow;
+    background-color: lightgrey;
+}
+
+.myhover{
+    background: #F0DCB6;
 }

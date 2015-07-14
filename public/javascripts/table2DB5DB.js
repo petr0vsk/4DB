@@ -1,5 +1,7 @@
 
-webix.ui({
+
+
+table2DB5DB = webix.ui({
 				container:"table2DB5DB",
                 id:"layout2DB5DB",
                 //width: 960,
@@ -108,7 +110,6 @@ webix.ui({
                     ], height: 35},
                     {minHeight: 400,
                         view:"datatable",
-
                         header:false,
                         editable:true,
                         editaction: "dblclick",
@@ -118,21 +119,34 @@ webix.ui({
                         scrollY:false,
                         rowHeight:200,
                         columns:[
-                            { id:"npp",	    header:"", width:50, height:200},
-                            { id:"context", header:"", width:300, fillspace:true, css:"multiline"},
-                            { id:"value",	header:"" , width:610 ,editor:"text"}
+                            { id:"npp",	    header:"", width:50},
+                            { id:"context", header:"", width:300, css: "multiline"},
+                            { id:"value",	header:"" , width:610, editor:"text"}
                         ],
+                        autowidth: true,
                         data:[
-                            { id:"1_1", npp:"2.3.1", context:"Сведения об инцидентах информационной безопасности, направленных за текущий период по форме ДБ-1, и мерах, предпринятых по их расследованию и устранению последствий.", value:""},
-                            { id:"1_2", npp:"2.3.2", context:"Сведения о ключевых событиях информационной безопасности, включая проектную деятельность, взаимодействие с регуляторами, пробемы ИБ, предложения по повышению защищенности", value:"" }
-                        ]
+                            { id:"2_3_1", npp:"2.3.1", context:"Сведения об инцидентах информационной безопасности, направленных за текущий период по форме ДБ-1, и мерах, предпринятых по их расследованию и устранению последствий.", value:""},
+                            { id:"2_3_2", npp:"2.3.2", context:"Сведения о ключевых событиях информационной безопасности, включая проектную деятельность, взаимодействие с регуляторами, пробемы ИБ, предложения по повышению защищенности", value:"" }
+                        ]//,
+
+                      //  on:{
+                      //      "onresize":webix.once(function(){
+                      //          this.adjustRowHeight("context", true);
+                      //      })
+                      //  }
+
+
+
                     }
 
 
 
 
 
-                ]   // rows:
+                ] //,   // rows:
+
+                    // table2DB5DB.setRowHeight("2_3_1", 200);
             });		// webix.ui
-	
+
+      //
 
