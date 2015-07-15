@@ -2,27 +2,14 @@
  * Created by avpetro1 on 14.07.2015.
  */
 
-var menu_data = [
-    { id:"1",value:"Translate...", submenu:[
-        "English",
-        { value:"Slavic...", submenu:[
-            "Belarus", "Russian", "Ukranian"
-        ]},
-        "German"
-    ]},
-    { id:"2",value:"Post...", submenu:[ "Facebook", "Google+", "Twitter" ]},
-    { id:"3",value:"Info" }
-];
-var menu = {
-    view:"menu",
-    data: menu_data,
-    css:"blue"
-};
+
 var toolbar = {
     view:"toolbar", paddingY:0,  elements:[
-        {},
-        { view:"text" },
-        { view:"button", label:"Search", width:100 }
+        {view:"tabbar", id:'tabbar', value: 'MainView', multiview:true, options: [
+            { value: 'Главная', id: 'MainView'},
+            { value: 'Ежнедельный отчет, ф. 4-ДБ', id: '4DBView'},
+            { value: 'Ежемесячный отчет, ф. 5-ДБ', id: '5DBView'}]
+        }
     ]
 };
 
@@ -41,10 +28,19 @@ webix.ready(function(){
     sizeToContent:true,
 
     rows:[
-        { type:"clean", cols:[ menu, toolbar ] }, //header
+         toolbar, //header
         { cols:[
-            { template:"col 1", minHeight:150,width: 150},
-            { template:"col 2", minHeight:600}
+            { template:"col 1", minHeight:150, width: 150},
+            { template:"col 2", minHeight:600, id:"MainContainer",
+
+                cells:[
+                    {id:"MainView", template:"11111 ", container: "MainContainer"},
+                    {id:"4DBView", template:"22222 ", container: "MainContainer"},
+                    {id:"5DBView", template:"33333 ", container: "MainContainer"}
+                ]
+            }
+
+
 
         ]},//main
         { template:"row 3", minHeight:50}//footer
