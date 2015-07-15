@@ -23,14 +23,18 @@ var  MainPage = {
 var  tab4_DB = {
     id:"4DBView",
     container: "MainContainer",
-    view: "template",
-    template: "Таблица 4-ДБ"
+    type:"line",
+    rows: [
+        { template:"Row 1"},
+        { template:"Row 2"}
+    ]
+
 };
-var  MainPage = {
-    id:"MainView",
+var  tab5_DB = {
+    id:"5DBView",
     container: "MainContainer",
     view: "template",
-    template: "Главная страница"
+    template: "5-ДБ"
 };
 
 
@@ -55,9 +59,8 @@ webix.ready(function(){
 
                 cells:[
                     MainPage,
-                    //{id:"MainView", template: "Default Template with some text inside" , container: "MainContainer"},
-                    {id:"4DBView", template:"22222 ", container: "MainContainer"},
-                    {id:"5DBView", template:"33333 ", container: "MainContainer"}
+                    tab4_DB,
+                    tab5_DB
                 ]
             }
 
